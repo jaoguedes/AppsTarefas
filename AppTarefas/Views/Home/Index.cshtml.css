@@ -1,0 +1,17 @@
+﻿
+body {
+    margin-bottom: 60px;
+    color: #212529;
+}
+
+.colorPrim {
+    color: #F7D5B1 !important;
+}
+
+.colorSec {
+    background-color: #2C3950;
+}
+
+.colorBack {
+    background-color: #212529;
+}

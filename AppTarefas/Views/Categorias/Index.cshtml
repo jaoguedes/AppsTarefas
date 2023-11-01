@@ -1,0 +1,111 @@
+﻿@model IEnumerable<AppTarefas.Models.Categoria>
+
+@{
+    ViewData["Title"] = "Categoria";
+}
+
+<h1>Categoria: </h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Adicionar</a>
+</p>
+
+<table class="table table-hover rounded-5
+        text-center caption-top
+        table-light table-bordered
+
+         ">
+    <thead class=" table table-dark ">
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriaNome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriaCor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <div style="background-color: @item.CategoriaCor; width:25px; height:25px; border-radius: 100%;"></div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoriaNome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoriaCor)
+                </td>
+                <td>
+
+                    <a asp-action="Edit" class="btn" asp-route-id="@item.CategoriaId" data-bs-toggle="tooltip"
+                       data-bs-title="Editar"
+                       data-bs-placement="bottom">
+                        <svg bootstrap-icon="PencilSquare" width="24" height="24" class="text-success"></svg>
+                    </a>
+
+                    <a asp-action="Details" class="btn" asp-route-id="@item.CategoriaId"
+                       data-bs-title="Detalhes"
+                       data-bs-placement="bottom"
+                       data-bs-toggle="modal" data-bs-target="#modalDetalhes_@item.CategoriaId">
+                        <svg bootstrap-icon="FileEarmarkTextFill" width="24" height="24" class="text-primary"></svg>
+                    </a>
+
+                    <a asp-action="Delete" class="btn " asp-route-id="@item.CategoriaId" data-bs-toggle="tooltip"
+                       data-bs-title="Excluir"
+                       data-bs-placement="bottom">
+                        <svg bootstrap-icon="TrashFill" width="24" height="24" class="text-danger"></svg>
+                    </a>
+
+                </td>
+            </tr>
+        }
+        </>
+    </tbody>
+</table>
+
+
+<!-- Modal -->
+@foreach (var item in Model)
+{
+    <div class="modal fade" id="modalDetalhes_@item.CategoriaId" tabindex="-1" aria-labelledby="modalDetalhesLabel_@item.CategoriaId" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #2C3950;">
+                    <h1 class="modal-title fs-5" id="modalDetalhesLabel_@item.CategoriaId">Detalhes da Categoria</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="background-color: #2C3950;">
+                    <div>
+                        <h4>Categoria:</h4>
+
+                        <dl class="row">
+                            <dt class="col-sm-6">
+                                @Html.DisplayNameFor(model => model.CategoriaNome)
+                            </dt>
+                            <dd class="col-sm-6">
+                                @Html.DisplayFor(model => item.CategoriaNome)
+                            </dd>
+                            <dt class="col-sm-6">
+                                @Html.DisplayNameFor(model => model.CategoriaCor)
+                            </dt>
+                            <dd class="col-sm-6">
+                                @Html.DisplayFor(model => item.CategoriaCor)
+                            </dd>
+                        </dl>
+
+                    </div>
+                </div>
+                <div class="modal-footer" style="background-color: #2C3950;">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
