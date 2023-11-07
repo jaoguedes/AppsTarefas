@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit"> 
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="TarefaId" />
             <div class="form-floating mb-3">
@@ -27,7 +27,7 @@
             </div>
 
             <div class="form-floating mb-3">
-                <input asp-for="DataFim" type="datetime-local" class="form-control"
+                <input asp-for="DataFim" type="datetime-local" id="dataFim" class="form-control"
                        placeholder=" " />
                 <label asp-for="DataFim" class="form-label text-dark">Data do Fim:</label>
                 <span asp-validation-for="DataFim" class="text-danger"></span>
@@ -38,8 +38,8 @@
                 <label asp-for="CategoriaId" class="control-label  text-dark">Categoria:</label>
             </div>
 
-            <div class="form-floating mb-3">          
-                <select asp-for="StatusId" class="form-control" asp-items="ViewBag.StatusId"></select>   
+            <div class="form-floating mb-3">
+                <select asp-for="StatusId" id="status" class="form-control" asp-items="ViewBag.StatusId" onchange="testar()"></select>
                 <label asp-for="StatusId" class="control-label text-dark">Status:</label>
                 <span asp-validation-for="StatusId" class="text-danger"></span>
             </div>
@@ -53,7 +53,9 @@
     </div>
 </div>
 
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

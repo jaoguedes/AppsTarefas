@@ -177,6 +177,10 @@
       "PackagePath": "staticwebassets\\js\\bootstrap.min.js.map"
     },
     {
+      "Id": "C:\\Users\\Aluno\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\AppTarefas\\AppTarefas\\Views\\Tarefas\\index.cshtml.js",
+      "PackagePath": "staticwebassets\\Views\\Tarefas\\index.cshtml.js"
+    },
+    {
       "Id": "C:\\Users\\Aluno\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\AppTarefas\\AppTarefas\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\AppTarefas.bundle.scp.css",
       "PackagePath": "staticwebassets\\AppTarefas.bundle.scp.css"
     },

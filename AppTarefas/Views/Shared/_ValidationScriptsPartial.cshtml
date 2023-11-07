@@ -1,2 +1,25 @@
 ﻿<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+
+<script>
+
+    function testar() {
+       let selectElement = document.getElementById('status');
+        let selectedIndex = selectElement.selectedIndex;
+        let selectedOption = selectElement.options[selectedIndex];
+        let selectedText = selectedOption.text;
+        console.log(selectedText);
+
+        let aux = document.getElementById('dataFim');
+
+        if (selectedText === 'Concluído') {
+            var hoje = new Date();
+            var ano = hoje.getFullYear();
+            var mes = String(hoje.getMonth() + 1).padStart(2, '0');
+            var dia = String(hoje.getDate() + 1).padStart(2, '0');
+            aux.max = `${ano}-${mes}-${dia}`;
+        } 
+    }
+
+</script>

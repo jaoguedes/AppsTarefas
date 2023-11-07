@@ -10,9 +10,35 @@
 <p>
     <a asp-action="Create" class="btn btn-primary">Adicionar</a>
 </p>
-<table class="table table-hover rounded-5
-        text-center caption-top
-        table-light table-bordered">
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#categoriaCorSelect').change(function () {
+                var categoriaCor = $(this).val();
+                $.get('/Tarefas/FiltrarPorCategoriaCor', { categoriaCor: categoriaCor }, function (data) {
+                    $('#tarefasTable tbody').html(data);
+                });
+            });
+        });
+    </script>
+}
+
+
+<div class="form-group m-3">
+    <label for="categoriaCorSelect">Filtrar por CategoriaCor:</label>
+    <select id="categoriaCorSelect" class="form-control">
+        <option value="">Todas as Cores</option>
+        @foreach (var categoria in ViewBag.Categorias)
+        {
+            <option value="@categoria.CategoriaCor">@categoria.CategoriaCor</option>
+        }
+    </select>
+</div>
+
+
+<table id="tarefasTable" class="table table-hover rounded-5 
+    text-center caption-top
+    table-light table-bordered">
     <thead class="table table-dark">
         <tr>
             <th>
@@ -34,47 +60,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TarefaNome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataInicio)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataFim)
-                </td>
-                <td style="color: @item.Categoria.CategoriaCor;">
-                    @Html.DisplayFor(modelItem => item.Categoria.CategoriaNome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Status.StatusNome)
-                </td>
-                <td>
-
-                    <a asp-action="Edit" class="btn" asp-route-id="@item.TarefaId" data-bs-toggle="tooltip"
-                       data-bs-title="Editar"
-                       data-bs-placement="bottom">
-                        <svg bootstrap-icon="PencilSquare" width="24" height="24" class="text-success"></svg>
-                    </a>
-
-                    <a asp-action="Details" class="btn" asp-route-id="@item.TarefaId"
-                       data-bs-title="Detalhes"
-                       data-bs-placement="bottom"
-                       data-bs-toggle="modal" data-bs-target="#modalDetalhes_@item.TarefaId">
-                        <svg bootstrap-icon="FileEarmarkTextFill" width="24" height="24" class="text-primary"></svg>
-                    </a>
-
-                    <a asp-action="Delete" class="btn " asp-route-id="@item.TarefaId" data-bs-toggle="tooltip"
-                       data-bs-title="Excluir"
-                       data-bs-placement="bottom">
-                        <svg bootstrap-icon="TrashFill" width="24" height="24" class="text-danger"></svg>
-                    </a>
-                </td>
-            </tr>
-        }
+        @Html.Partial("_TarefasTable", Model)
     </tbody>
 </table>
 

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JC73naPUKLVQlKLUkBzBsmrXIWuMD1EN6wt5K9BIkEg=",
+  "Hash": "sMP75fswsnUPbL4ttc5PaZqruBaIs6mPYqQ41Ug5GIs=",
   "Source": "AppTarefas",
   "BasePath": "_content/AppTarefas",
   "Mode": "Default",
@@ -797,6 +797,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Aluno\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\AppTarefas\\AppTarefas\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\AppTarefas.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Aluno\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\AppTarefas\\AppTarefas\\Views\\Tarefas\\index.cshtml.js",
+      "SourceId": "AppTarefas",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Aluno\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\AppTarefas\\AppTarefas\\",
+      "BasePath": "_content/AppTarefas",
+      "RelativePath": "Views/Tarefas/index.cshtml.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "Views\\Tarefas\\index.cshtml.js"
     },
     {
       "Identity": "C:\\Users\\Aluno\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\AppTarefas\\AppTarefas\\wwwroot\\css\\site.css",

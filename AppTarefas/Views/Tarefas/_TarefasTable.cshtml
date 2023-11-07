@@ -1,0 +1,49 @@
+﻿@model List<Tarefa>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td class="@(item.Status.StatusNome == "Concluído" ? "text-decoration-line-through" : "")">
+            @Html.DisplayFor(modelItem => item.TarefaNome)
+        </td>
+
+        <td class="@(item.Status.StatusNome == "Concluído" ? "text-decoration-line-through" : "")">
+            @Html.DisplayFor(modelItem => item.DataInicio)
+        </td>
+
+        <td class="@(item.Status.StatusNome == "Concluído" ? "text-decoration-line-through" : "")">
+            @Html.DisplayFor(modelItem => item.DataFim)
+        </td>
+
+        <td style="color: @item.Categoria.CategoriaCor;">
+            @Html.DisplayFor(modelItem => item.Categoria.CategoriaNome)
+        </td>
+
+        <td class="@(item.Status.StatusNome == "Concluído" ? "text-decoration-line-through" : "")">
+            @Html.DisplayFor(modelItem => item.Status.StatusNome)
+        </td>
+
+        <td>
+
+            <a asp-action="Edit" class="btn" asp-route-id="@item.TarefaId" data-bs-toggle="tooltip"
+               data-bs-title="Editar"
+               data-bs-placement="bottom">
+                <svg bootstrap-icon="PencilSquare" width="24" height="24" class="text-success"></svg>
+            </a>
+
+            <a asp-action="Details" class="btn" asp-route-id="@item.TarefaId"
+               data-bs-title="Detalhes"
+               data-bs-placement="bottom"
+               data-bs-toggle="modal" data-bs-target="#modalDetalhes_@item.TarefaId">
+                <svg bootstrap-icon="FileEarmarkTextFill" width="24" height="24" class="text-primary"></svg>
+            </a>
+
+            <a asp-action="Delete" class="btn " asp-route-id="@item.TarefaId" data-bs-toggle="tooltip"
+               data-bs-title="Excluir"
+               data-bs-placement="bottom">
+                <svg bootstrap-icon="TrashFill" width="24" height="24" class="text-danger"></svg>
+            </a>
+        </td>
+    </tr>
+
+}

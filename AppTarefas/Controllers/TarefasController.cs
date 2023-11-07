@@ -20,11 +20,40 @@ namespace AppTarefas.Controllers
         }
 
         // GET: Tarefas
-        public async Task<IActionResult> Index()
+
+        public IActionResult Index()
         {
-            var appTarefasDbContext = _context.Tarefas.Include(t => t.Categoria).Include(t => t.Status);
-            return View(await appTarefasDbContext.ToListAsync());
+            var categorias = _context.Categorias.ToList();
+            ViewBag.Categorias = categorias;
+
+            var tarefas = _context.Tarefas
+                .Include(t => t.Categoria)
+                .Include(t => t.Status)
+                .ToList();
+
+            return View(tarefas);
+
         }
+
+        [HttpGet]
+        public IActionResult FiltrarPorCategoriaCor(string categoriaCor)
+        {
+            var categorias = _context.Categorias.ToList();
+            ViewBag.Categorias = categorias;
+
+            List<Tarefa> tarefasFiltradas = _context.Tarefas
+                .Include(t => t.Categoria)
+                .Include(t => t.Status)
+                .Where(t => string.IsNullOrEmpty(categoriaCor) || t.Categoria.CategoriaCor == categoriaCor)
+                .ToList();
+
+            return PartialView("_TarefasTable", tarefasFiltradas);
+
+        }
+
+
+
+
 
         // GET: Tarefas/Details/5
         public async Task<IActionResult> Details(Guid? id)
@@ -93,8 +122,6 @@ namespace AppTarefas.Controllers
         }
 
         // POST: Tarefas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, [Bind("TarefaId,TarefaNome,DataInicio,DataFim,CategoriaId,StatusId")] Tarefa tarefa)
@@ -128,6 +155,8 @@ namespace AppTarefas.Controllers
             ViewData["StatusId"] = new SelectList(_context.Status, "StatusId", "StatusNome", tarefa.StatusId);
             return View(tarefa);
         }
+
+
 
         // GET: Tarefas/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
