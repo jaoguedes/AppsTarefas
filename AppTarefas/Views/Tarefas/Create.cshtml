@@ -25,13 +25,6 @@
                 <span asp-validation-for="DataInicio" class="text-danger"></span>
             </div>
 
-            <div class="form-floating mb-3">
-                <input asp-for="DataFim" type="datetime-local" class="form-control"
-                       placeholder=" " />
-                <label asp-for="DataFim" class="form-label text-dark">Data do Fim:</label>
-                <span asp-validation-for="DataFim" class="text-danger"></span>
-            </div>
-
             <div class="form-floating mb-3">      
                 <select asp-for="CategoriaId" class="form-control" asp-items="ViewBag.CategoriaId"></select>     
                 <label asp-for="CategoriaId" class="control-label  text-dark">Categoria:</label>
