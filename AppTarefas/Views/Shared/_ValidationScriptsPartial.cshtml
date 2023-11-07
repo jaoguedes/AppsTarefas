@@ -17,9 +17,14 @@
             var hoje = new Date();
             var ano = hoje.getFullYear();
             var mes = String(hoje.getMonth() + 1).padStart(2, '0');
-            var dia = String(hoje.getDate() + 1).padStart(2, '0');
-            aux.max = `${ano}-${mes}-${dia}`;
-        } 
+            var dia = String(hoje.getDate() ).padStart(2, '0');
+            var hora = String(hoje.getHours() ).padStart(2, '0');
+            var minutos = String(hoje.getMinutes() ).padStart(2, '0');
+            aux.value = `${dia}/${mes}/${ano} ${hora}:${minutos}`;
+        }
+        else{ 
+            aux.value = ``;
+        }
     }
 
 </script>

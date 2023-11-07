@@ -20,15 +20,15 @@
                 <span asp-validation-for="TarefaNome" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
-                <input asp-for="DataInicio" type="text" value="@DateTime.Now.ToString()" readonly class="form-control"
+                <input asp-for="DataInicio" type="text" readonly class="form-control"
                        placeholder=" " />
                 <label asp-for="DataInicio" class="form-label text-dark">Data de Inicio:</label>
                 <span asp-validation-for="DataInicio" class="text-danger"></span>
             </div>
 
             <div class="form-floating mb-3">
-                <input asp-for="DataFim" type="datetime-local" id="dataFim" class="form-control"
-                       placeholder=" " />
+                <input asp-for="DataFim" type="datetime" id="dataFim" class="form-control"
+                       placeholder=" " readonly />
                 <label asp-for="DataFim" class="form-label text-dark">Data do Fim:</label>
                 <span asp-validation-for="DataFim" class="text-danger"></span>
             </div>

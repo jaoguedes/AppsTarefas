@@ -10,6 +10,7 @@
 <p>
     <a asp-action="Create" class="btn btn-primary">Adicionar</a>
 </p>
+
 @section scripts {
     <script>
         $(document).ready(function () {
@@ -24,13 +25,13 @@
 }
 
 
-<div class="form-group m-3">
-    <label for="categoriaCorSelect">Filtrar por CategoriaCor:</label>
+<div class="form-group m-3 input-group ">
+    <label class="input-group-text btn btn-primary " for="categoriaCorSelect">Filtrar por Categoria:</label>
     <select id="categoriaCorSelect" class="form-control">
-        <option value="">Todas as Cores</option>
+        <option value="">Todas as Categorias</option>
         @foreach (var categoria in ViewBag.Categorias)
         {
-            <option value="@categoria.CategoriaCor">@categoria.CategoriaCor</option>
+            <option value="@categoria.CategoriaCor">@categoria.CategoriaNome</option>
         }
     </select>
 </div>
